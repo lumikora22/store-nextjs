@@ -1,0 +1,10 @@
+.header {
+	position: relative;
+	background-color: $background-grey-dark;
+	box-shadow: 0 -10px 15px rgba(0, 0, 0, 0.5);
+	-webkit-box-shadow: 0 -10px 15px rgba(0, 0, 0, 0.5);
+	-moz-box-shadow: 0 -10px 15px rgba(0, 0, 0, 0.5);
+	z-index: 1;
+	width: 100%;
+	color: white;
+}

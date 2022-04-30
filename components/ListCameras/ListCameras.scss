@@ -1,0 +1,10 @@
+.cameras {
+	h2 {
+		color: $font-gray;
+	}
+}
+.list-cameras {
+	margin: 20px;
+	display: flex;
+	flex-wrap: wrap;
+}
