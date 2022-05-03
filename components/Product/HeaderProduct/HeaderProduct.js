@@ -10,6 +10,7 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import useAuth from '../../../hooks/useAuth';
 import {size} from 'lodash';
 import { toast } from 'react-toastify';
+import useCart from '../../../hooks/useCart';
 
 
 const Headerproduct = ({ product }) => {
@@ -92,14 +93,19 @@ function Info({ product }) {
 	const [isFavorites, setIsFavorites] = useState(false);
 	const [realoadFavorite, setRealoadFavorite] = useState(false);
 	const { auth, logout } = useAuth();
+	const {addProductCart} = useCart();
+
 	useAuth();
 	useEffect(() => {
 		(async () => {
-			const response = await isFavoriteApi(auth.idUser, product._id, logout);
+			if(auth){
+				const response = await isFavoriteApi(auth.idUser, product._id, logout);
 			
-			if (size(response) > 0) setIsFavorites(true);
-			else setIsFavorites(false);
-
+				if (size(response) > 0) setIsFavorites(true);
+				else setIsFavorites(false);
+				
+			}
+			
 		})();
 		setRealoadFavorite(false);
 	}, [product, realoadFavorite]);
@@ -115,6 +121,8 @@ function Info({ product }) {
 				const response = await addFavoriteApi(auth.idUser, product.id, logout);
 				setRealoadFavorite(true);
 				toast.success('Producto agregado a favoritos');
+			}else{
+				toast.warning('Debes iniciar sesión')
 			}
 		}
 		
@@ -145,7 +153,7 @@ function Info({ product }) {
 			<Button variant='contained' className='btn-buy'>
 				Comprar ahora
 			</Button>
-			<Button variant='outlined' className='btn-basket'>
+			<Button variant='outlined' className='btn-basket' onClick={()=>addProductCart(product.url)}>
 				Agregar al carrito
 			</Button>
 			<Button className='btn-favorite' onClick={addFavorite}>

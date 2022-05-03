@@ -4,7 +4,7 @@ import LocalGroceryStoreIcon from '@mui/icons-material/LocalGroceryStore';
 import Link from 'next/link';
 
 const ListProductos = ({ productos, currentPlatform }) => {
-	console.log(currentPlatform);
+	
 	return (
 		<div className='cameras'>
 			{currentPlatform ? <h2>{currentPlatform[0].title}</h2> : null}
