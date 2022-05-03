@@ -1,0 +1,57 @@
+.cameras {
+	h2 {
+		color: $font-gray;
+	}
+}
+.list-cameras {
+	margin: 20px;
+	display: flex;
+	flex-wrap: wrap;
+	.camera-item {
+		width: 25%;
+
+		.camera-card {
+			margin: 15px;
+			.content-camera-card {
+				font-size: 14px;
+				color: $font-dark-gray;
+			}
+			.price-container {
+				display: flex;
+				font-weight: bold;
+				color: $background-dark;
+				p:nth-child(2) {
+					margin-left: 10px;
+					text-decoration: line-through;
+					color: $font-gray;
+				}
+			}
+			.link-more {
+				text-decoration: none;
+			}
+
+			.img-camera-card {
+				display: flex;
+				width: 100%;
+				height: 200px;
+				overflow: hidden;
+				img {
+					width: 100%;
+					object-fit: cover;
+				}
+			}
+		}
+	}
+}
+
+#__next
+	> div.basic-layout.home
+	> div.MuiContainer-root.MuiContainer-maxWidthLg.content.css-1oqqzyl-MuiContainer-root
+	> div.cameras
+	> div
+	> div
+	> div
+	> div.actions-card
+	button {
+	margin-right: 20px;
+}

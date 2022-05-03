@@ -2,6 +2,8 @@ import SearchIcon from '@mui/icons-material/Search';
 import Link from 'next/link';
 import { styled, alpha } from '@mui/material/styles';
 import InputBase from '@mui/material/InputBase';
+import { useState, useEffect } from 'react';
+import { useRouter } from 'next/router';
 
 const TopBar = () => {
 	return (
@@ -27,6 +29,18 @@ function Logo() {
 }
 
 function Search() {
+	const [searchStr, setSearchStr] = useState('');
+	const [load, setLoad] = useState(false);
+	const router = useRouter();
+
+	useEffect(() => {
+		if (load) {
+			router.push(`/search?query=${searchStr}`);
+		}
+		setLoad(true);
+	}, [searchStr]);
+
+	console.log(router);
 	const Search = styled('div')(({ theme }) => ({
 		position: 'relative',
 		borderRadius: theme.shape.borderRadius,
@@ -67,13 +81,22 @@ function Search() {
 		},
 	}));
 	return (
-		<Search>
+		<Search
+		// onChange={(event) => setSearchStr(event.target.value)}
+		>
 			<SearchIconWrapper>
 				<SearchIcon />
 			</SearchIconWrapper>
 			<StyledInputBase
 				placeholder='Search…'
-				inputProps={{ 'aria-label': 'search' }}
+				inputProps={{
+					'aria-label': 'search',
+					value: router.query,
+					onChange: (event) => {
+						setSearchStr(event.target.value);
+					},
+					id: 'search-input',
+				}}
 			/>
 		</Search>
 	);

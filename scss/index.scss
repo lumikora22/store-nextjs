@@ -12,13 +12,19 @@
 @import '../components/Account/ChangePasswordForm/ChangePasswordForm.scss';
 @import '../components/Account/AdressForm/AdressForm.scss';
 @import '../components/Account/ListAddress/ListAddress.scss';
-@import '../components/ListCameras/ListCameras.scss';
+@import '../components/ListProductos/ListProductos.scss';
+@import '../components/Pagination/Pagination.scss';
+@import '../components/Product/HeaderProduct/HeaderProdcut.scss';
 
 //Pages
 @import '../pages/account.scss';
 @import '../pages/index.scss';
+@import '../pages/wishlist.scss';
+@import '../pages/search.scss';
 
 //Extensions
 
 @import 'slick-carousel/slick/slick.css';
 @import 'slick-carousel/slick/slick-theme.css';
+
+
