@@ -2,9 +2,9 @@ import { Button } from '@mui/material';
 import { map } from 'lodash';
 import LocalGroceryStoreIcon from '@mui/icons-material/LocalGroceryStore';
 import Link from 'next/link';
+import useCart from '../../hooks/useCart';
 
 const ListProductos = ({ productos, currentPlatform }) => {
-	
 	return (
 		<div className='cameras'>
 			{currentPlatform ? <h2>{currentPlatform[0].title}</h2> : null}
@@ -21,6 +21,7 @@ const ListProductos = ({ productos, currentPlatform }) => {
 };
 
 function Producto({ producto }) {
+	const {addProductCart} = useCart();
 	return (
 		<div className='camera-card'>
 			<div className='img-camera-card'>
@@ -47,7 +48,10 @@ function Producto({ producto }) {
 				</p>
 			</div>
 			<div className='actions-card'>
-				<Button size='small' variant='contained'>
+				<Button
+					size='small'
+					variant='contained'
+					onClick={()=>addProductCart(producto.url)}>
 					Agregar <LocalGroceryStoreIcon />
 				</Button>
 				<Link href={`/${producto.url}`}>
