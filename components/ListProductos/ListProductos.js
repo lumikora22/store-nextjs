@@ -5,6 +5,7 @@ import Link from 'next/link';
 import useCart from '../../hooks/useCart';
 
 const ListProductos = ({ productos, currentPlatform }) => {
+
 	return (
 		<div className='cameras'>
 			{currentPlatform ? <h2>{currentPlatform[0].title}</h2> : null}

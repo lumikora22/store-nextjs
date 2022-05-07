@@ -1,11 +1,29 @@
 .main-page {
 	margin: 15px;
+	display: flex;
+	.MuiBox-root {
+		.img-container {
+			img {
+				width: 100%;
+			}
+		}
+	}
+	.poster-container {
+		width: 100%;
+		.poster-container-img {
+			display: flex;
+			justify-content: center;
+			img {
+				width: 80%;
+			}
+		}
+	}
 }
 .slick-list {
 	height: 500px;
 }
 
-.load-more{
-	display:flex;
-	justify-content:center;
+.load-more {
+	display: flex;
+	justify-content: center;
 }

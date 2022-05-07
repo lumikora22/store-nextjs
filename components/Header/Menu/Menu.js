@@ -68,7 +68,7 @@ const MenuWeb = () => {
 	return (
 		<div className='menu'>
 			<div className='menu-plataforma'>
-				<MenuPlataforma platforms={platforms} />
+				{/* <MenuPlataforma platforms={platforms} /> */}
 			</div>
 			<div className='menu-usuario'>
 				{user !== undefined && (
